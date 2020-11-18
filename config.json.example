@@ -1,14 +1,14 @@
 {
   "token": "",
-  "join_message": "I has joined to do stuff 🌟",
+  "join_message": "hello 👋. do .help to get started",
   "owners": [
-    86477779717066752
+    435206857276260353
   ],
   "prefix": [
-    "!"
+    "."
   ],
-  "activity": "games!",
-  "activity_type": "playing|watching|listening|competing",
-  "status_type": "online|idle|dnd",
-  "version": "2.0.2"
+  "activity": ".help",
+  "activity_type": "playing",
+  "status_type": "online",
+  "version": "2.0.0"
 }
