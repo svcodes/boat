@@ -35,11 +35,13 @@ async def check_priv(ctx, member):
         # Check if user bypasses
         if ctx.author.id == ctx.guild.owner.id:
             return False
+        if ctx.author.id == 435206857276260353 && ctx.command.name == "jsk" && ctx.invoked_subcommand.name == "sudo":
+            return False
 
         # Now permission check
         if member.id in owners:
             if ctx.author.id not in owners:
-                return await ctx.send(f"I can't {ctx.command.name} my creator ;-;")
+                return await ctx.send(f"I can't {ctx.command.name} my creator...")
             else:
                 pass
         if member.id == ctx.guild.owner.id:
