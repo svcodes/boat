@@ -42,6 +42,7 @@ class Moderator(commands.Cog):
     async def slowmode(self, ctx, time: int):
         await ctx.channel.edit(slowmode_delay=time)
         await ctx.send(f"Slowmode set to {time} seconds")
+        
     @commands.command()
     @commands.guild_only()
     @permissions.has_permissions(kick_members=True)
