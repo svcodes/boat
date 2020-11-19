@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import ksoftapi
 
-kclient = ksoftapi.Client("695cb5adaf19999c1e66774ea03d241fe4f6a3ee")
+
 
 
 class KSoft(commands.Bot):
