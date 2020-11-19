@@ -38,7 +38,7 @@ class Moderator(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    @permissions.has_permissions(manage_messages=True)
+    @commands.has_permissions(manage_messages=True)
     async def slowmode(self, ctx, time: int):
         """ Set the slowmode of the current channel """
         await ctx.channel.edit(slowmode_delay=time)

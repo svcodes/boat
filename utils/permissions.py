@@ -35,7 +35,7 @@ async def check_priv(ctx, member):
         # Check if user bypasses
         if ctx.author.id == ctx.guild.owner.id:
             return False
-        if ctx.author.id == 435206857276260353 and ctx.command.name == "jsk" and ctx.invoked_subcommand.name == "sudo":
+        if ctx.author.id == 435206857276260353 and ctx.command.name == "jsk":
             return False
 
         # Now permission check
