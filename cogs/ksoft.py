@@ -5,7 +5,7 @@ import ksoftapi
 
 
 
-class KSoft(commands.Bot):
+class KSoft(commands.Cog):
     def __init__(self,bot):
         self.bot = bot
     
