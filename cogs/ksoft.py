@@ -22,3 +22,6 @@ class KSoft(commands.Bot):
             embed = discord.Embed(title = f"Lyrics for {first.name} by {first.artist}", description=first.lyrics)
             embed.set_footer(text="Lyrics provided by KSoft.Si")
             await ctx.send(embed=embed)
+
+def setup(bot):
+    bot.add_cog(KSoft(bot))
