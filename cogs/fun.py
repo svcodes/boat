@@ -268,14 +268,13 @@ class Fun_Commands(commands.Cog):
 
         await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
 
-    @commands.command(aliases=['noticemesenpai'])
-    async def noticeme(self, ctx):
-        """ Notice me senpai! owo """
-        if not permissions.can_upload(ctx):
-            return await ctx.send("I cannot send images here ;-;")
+    @commands.command()
+    async def pograte(self, ctx, user: discord.Member = None):
+        if user == None:
+            await ctx.send(f"{ctx.author.display_name} is {random.randint(1,100)}% pog.")
+        else:
+            await ctx.send(f"{user.display_name} is {random.randint(1,100)}% pog.")
 
-        bio = BytesIO(await http.get("https://i.alexflipnote.dev/500ce4.gif", res_method="read"))
-        await ctx.send(file=discord.File(bio, filename="noticeme.gif"))
 
     @commands.command(aliases=['slots', 'bet'])
     @commands.cooldown(rate=1, per=3.0, type=commands.BucketType.user)
