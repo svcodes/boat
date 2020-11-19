@@ -41,9 +41,11 @@ class Moderator(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     async def slowmode(self, ctx, time: int):
         """ Set the slowmode of the current channel """
-        await ctx.channel.edit(slowmode_delay=time)
-        await ctx.send(f"Slowmode set to {time} seconds")
-
+        try:
+            await ctx.channel.edit(slowmode_delay=time)
+            await ctx.send(f"Slowmode set to {time} seconds")
+        except discord.ext.commands.MissingPermissions:
+            await ctx.send("You dont have the perms to do this!")
     @commands.command()
     @commands.guild_only()
     @permissions.has_permissions(kick_members=True)
