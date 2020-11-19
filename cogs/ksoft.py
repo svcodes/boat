@@ -11,7 +11,7 @@ class KSoft(commands.Bot):
     
 
     @commands.command()
-    async def lyrics(ctx, *,query):
+    async def lyrics(self,ctx, *,query):
         """ Return lyrics for a given song """
         try:
             results = await kclient.music.lyrics(query=query,clean_up=True)
