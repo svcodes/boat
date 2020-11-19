@@ -12,13 +12,13 @@ class KSoft(commands.Bot):
 
     @commands.command()
     async def lyrics(ctx, *,query):
-    """ Return lyrics for a given song """
-    try:
-        results = await kclient.music.lyrics(query=query,clean_up=True)
-    except ksoftapi.NoResults:
-        await ctx.send('No lyrics found for ' + query)
-    else:
-        first = results[0]
-        embed = discord.Embed(title = f"Lyrics for {first.name} by {first.artist}", description=first.lyrics)
-        embed.set_footer(text="Lyrics provided by KSoft.Si")
-        await ctx.send(embed=embed)
+        """ Return lyrics for a given song """
+        try:
+            results = await kclient.music.lyrics(query=query,clean_up=True)
+        except ksoftapi.NoResults:
+            await ctx.send('No lyrics found for ' + query)
+        else:
+            first = results[0]
+            embed = discord.Embed(title = f"Lyrics for {first.name} by {first.artist}", description=first.lyrics)
+            embed.set_footer(text="Lyrics provided by KSoft.Si")
+            await ctx.send(embed=embed)
