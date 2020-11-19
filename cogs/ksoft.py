@@ -1,15 +1,17 @@
 import discord
 from discord.ext import commands
 import ksoftapi
+from utils import default
 
+config = default.get("config.json")
+kclient = ksoftapi.Client(config.ksoft_token)
 
 
 
 class KSoft(commands.Cog):
     def __init__(self,bot):
         self.bot = bot
-    
-
+        
     @commands.command()
     async def lyrics(self,ctx, *,query):
         """ Return lyrics for a given song """
