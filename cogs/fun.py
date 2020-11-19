@@ -16,6 +16,18 @@ class Fun_Commands(commands.Cog):
         self.bot = bot
         self.config = default.get("config.json")
 
+    @commands.command()
+    async def poll(self, ctx, *, question: commands.clean_content):
+    """ Make a poll to ask people questions """
+    await ctx.message.delete()
+    pollembed = discord.Embed(title= question, colour = discord.Colour(0x7289da))
+    pollembed.set_author(name=f"{ctx.author.name} asks: ")
+    pogmessage = await ctx.send(embed=pollembed)
+    await pogmessage.add_reaction("\U0001f44d")
+    await pogmessage.add_reaction("\U0001f44e")
+    await pogmessage.add_reaction("\U0001f90f")
+
+
     @commands.command(aliases=['8ball'])
     async def eightball(self, ctx, *, question: commands.clean_content):
         """ Consult 8ball to receive an answer """
