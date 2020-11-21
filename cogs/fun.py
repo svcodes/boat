@@ -252,6 +252,8 @@ class Fun_Commands(commands.Cog):
     @commands.command(aliases=['howhot', 'hot'])
     async def hotcalc(self, ctx, *, user: discord.Member = None):
         """ Returns a random percent for how hot is a discord user """
+        
+        
         user = user or ctx.author
 
         random.seed(user.id)
