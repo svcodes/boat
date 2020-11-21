@@ -16,9 +16,12 @@ class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-        if not hasattr(bot, 'lavalink'):
-            lavalink.Client(bot=self.bot, ws_port=1420, password='youshallnotpass', loop=self.bot.loop)
-            self.bot.lavalink.register_hook(self.track_hook)
+        if not hasattr(bot, 'lavalink'):  # This ensures the client isn't overwritten during cog reloads.
+            bot.lavalink = lavalink.Client(bot.user.id)
+            bot.lavalink.add_node('127.0.0.1', 2333, 'youshallnotpass', 'eu', 'default-node')  # Host, Port, Password, Region, Name
+            bot.add_listener(bot.lavalink.voice_update_handler, 'on_socket_response')
+
+        lavalink.add_event_hook(self.track_hook)
 
     async def track_hook(self, event):
         if isinstance(event, lavalink.Events.TrackStartEvent):
