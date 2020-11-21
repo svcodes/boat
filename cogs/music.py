@@ -12,7 +12,7 @@ def mstomin(input):
     return f"{((input /1000) / 60):.2f}"
 
 
-class Music:
+class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
