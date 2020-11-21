@@ -3,7 +3,7 @@ import discord
 from io import BytesIO
 from utils import default
 from discord.ext import commands
-
+import yarl
 
 class Discord_Info(commands.Cog):
     def __init__(self, bot):
