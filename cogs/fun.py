@@ -36,7 +36,7 @@ class Fun_Commands(commands.Cog):
 
     async def randomimageapi(self, ctx, url, endpoint):
         try:
-            r = await http.get(url,headers = {"Authorization": self.config.alexflipnote_token} res_method="json", no_cache=True)
+            r = await http.get(url,res_method="json", no_cache=True, headers = {"Authorization": self.config.alexflipnote_token})
         except aiohttp.ClientConnectorError:
             return await ctx.send("The API seems to be down...")
         except aiohttp.ContentTypeError:
@@ -46,7 +46,7 @@ class Fun_Commands(commands.Cog):
 
     async def api_img_creator(self, ctx, url, filename, content=None):
         async with ctx.channel.typing():
-            req = await http.get(url,headers = {"Authorization": self.config.alexflipnote_token}, res_method="read")
+            req = await http.get(url, res_method="read",headers = {"Authorization": self.config.alexflipnote_token})
 
             if req is None:
                 return await ctx.send("I couldn't create the image ;-;")
