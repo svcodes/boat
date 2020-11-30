@@ -5,6 +5,8 @@ import secrets
 import asyncio
 import aiohttp
 import re
+from disputils import BotMultipleChoice
+
 
 from io import BytesIO
 from discord.ext import commands
@@ -26,6 +28,15 @@ class Fun_Commands(commands.Cog):
         await pogmessage.add_reaction("\U0001f44d")
         await pogmessage.add_reaction("\U0001f44e")
         await pogmessage.add_reaction("\U0001f90f")
+    
+    @commands.command()
+    async def bigpoll(self,ctx,question, *options):
+        """ Poll, but you can have multiple options """
+        multiple_choice = BotMultipleChoice(ctx, options, question)
+        await multiple_choice.run()
+        await multiple_choice.quit(multiple_choice.choice)
+
+
 
 
     @commands.command(aliases=['8ball'])
