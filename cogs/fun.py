@@ -27,6 +27,35 @@ class Fun_Commands(commands.Cog):
         await pogmessage.add_reaction("\U0001f44e")
         await pogmessage.add_reaction("\U0001f90f")
 
+    @commands.command()
+    async def gn(self, ctx, user: discord.Member = None):
+        """
+        Say goodnight to someone
+        """
+        if user == None:
+            await ctx.send(f"{ctx.author.display_name} says goodnight")
+        else:
+            await ctx.send(f"{ctx.author.display_name} says goodnight to {user.display_name}")
+
+    @commands.command()
+    async def gm(self, ctx, user: discord.Member = None):
+        """
+        Say good morning to someone
+        """
+        if user == None:
+            await ctx.send(f"{ctx.author.display_name} says good morning")
+        else:
+            await ctx.send(f"{ctx.author.display_name} says good morning to {user.display_name}")
+
+    @commands.command()
+    async def ga(self, ctx, user: discord.Member = None):
+        """
+        Say good afternoon to someone
+        """
+        if user == None:
+            await ctx.send(f"{ctx.author.display_name} says good afternoon")
+        else:
+            await ctx.send(f"{ctx.author.display_name} says good afternoon to {user.display_name}")
 
     @commands.command(aliases=['8ball'])
     async def eightball(self, ctx, *, question: commands.clean_content):
