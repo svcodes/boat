@@ -41,6 +41,12 @@ class Admin(commands.Cog):
 
     @commands.command()
     @commands.check(permissions.is_owner)
+    async def echo(self, ctx, *, text):
+        await ctx.send(text)
+
+
+    @commands.command()
+    @commands.check(permissions.is_owner)
     async def unload(self, ctx, name: str):
         """ Unloads an extension. """
         try:
