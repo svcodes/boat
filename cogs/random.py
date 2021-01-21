@@ -8,7 +8,7 @@ class Random(commands.Cog):
         self.bot = bot
     
     @commands.command()
-    async def runpy(self, ctx, *, code)
+    async def runpy(self, ctx, *, code):
         json = {"language": "python3", "source": code}
         returned = await http.post(url="https://emkc.org/api/v1/piston/execute", json=json)
         await ctx.send(returned)
