@@ -11,7 +11,14 @@ class Random(commands.Cog):
     async def runpy(self, ctx, *, code):
         json = {"language": "python3", "source": code}
         returned = await http.post(url="https://emkc.org/api/v1/piston/execute", json=json)
-        await ctx.send(returned)
+        embed = discord.Embed(title=f"did running succeed? {returned['ran']}")
+        embed.add_field(name="Output", value=f"""```py
+{returned['stdout']}
+```""") 
+        embed.add_field(name="Errors", value=f"""```py
+{returned['stderr']}
+```""") 
+        await ctx.send(embed=embed)
 
     
 def setup(bot):
