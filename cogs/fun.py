@@ -17,6 +17,8 @@ class Fun_Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.config = default.get("config.json")
+    
+    
     @bot.command()
     async def chatbot(ctx, *, text: str):
         if not (3 <= len(text) <= 60):
