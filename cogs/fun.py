@@ -20,12 +20,12 @@ class Fun_Commands(commands.Cog):
     
     
     @bot.command()
-    async def chatbot(ctx, *, text: str):
+    async def cb(ctx, *, text: str):
         if not (3 <= len(text) <= 60):
             return await ctx.send("Text must be longer than 3 chars and shorter than 60.")
         payload = {"text": text} #the optional context should be archived somewhere up to you to provide some chat history from the user
-        data = http.post("https://public-api.travitia.xyz/talk", json=payload, headers={"authorization": self.config.travitia_key)
-        await ctx.send(data['response'])    
+        async with ctx.channel.typing(), ctx.bot.session.post("https://public-api.travitia.xyz/talk", json=payload, headers={"authorization": self.config.travitia_key}) as req:
+            await ctx.send((await req.json())["response"]) 
 
 
     @commands.command()
