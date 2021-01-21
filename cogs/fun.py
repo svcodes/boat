@@ -19,7 +19,7 @@ class Fun_Commands(commands.Cog):
         self.config = default.get("config.json")
     
     
-    @bot.command()
+    @commands.command()
     async def cb(ctx, *, text: str):
         if not (3 <= len(text) <= 60):
             return await ctx.send("Text must be longer than 3 chars and shorter than 60.")
