@@ -15,6 +15,11 @@ class Events(commands.Cog):
         self.process = psutil.Process(os.getpid())
 
     @commands.Cog.listener()
+    async def on_message(self, message):
+        if "senpai" in message.content.lower():
+            await message.delete()
+    
+    @commands.Cog.listener()
     async def on_command_error(self, ctx, err):
         if isinstance(err, errors.MissingRequiredArgument) or isinstance(err, errors.BadArgument):
             helper = str(ctx.invoked_subcommand) if ctx.invoked_subcommand else str(ctx.command)
