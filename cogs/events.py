@@ -18,6 +18,8 @@ class Events(commands.Cog):
     async def on_message(self, message):
         if "senpai" in message.content.lower():
             await message.delete()
+        if "bye" in message.content.lower():
+            await message.add_reaction("\U0001f44b")
     
     @commands.Cog.listener()
     async def on_command_error(self, ctx, err):
