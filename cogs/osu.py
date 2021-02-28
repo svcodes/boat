@@ -21,7 +21,9 @@ class Osu(commands.Cog):
         data = api[0]
         embed = discord.Embed(title = f"osu! stats for {data['username']}", colour = 0xff66aa)
         playtime_secs = int(data['total_seconds_played'])
-        playtime_mins = playtime_secs/60
+        playtime_mins = floor(playtime_secs/60)
+        playtime_hr = playtime_mins // 60
+        remain_mins = playtime_mins % 60                              
         embed.description = f"""**Username:** {data['username']}
 **Join Date:** {data['join_date']}
 
@@ -33,7 +35,7 @@ class Osu(commands.Cog):
 
 **Ranked/Total Score:** {data['ranked_score']}/{data['total_score']}
 
-**Playtime:** {playtime_mins:.2f} minutes
+**Playtime:** {playtime_hr} hours, {remain_mins} minutes
 """
         embed.set_thumbnail(url = f"http://s.ppy.sh/a/{data['user_id']}")
         embed.set_image(url=f"http://lemmmy.pw/osusig/sig.php?colour=hexff66aa&uname={urllib.parse.quote_plus(username)}&pp=2&onlineindicator=undefined&xpbar&xpbarhex")
