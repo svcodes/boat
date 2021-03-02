@@ -25,5 +25,12 @@ class KSoft(commands.Cog):
             embed.set_footer(text="Lyrics provided by KSoft.Si")
             await ctx.send(embed=embed)
 
+    @commands.command()
+    async def meme(self, ctx):
+        meme = kclient.images.random_meme
+        embed = discord.Embed(title=f"Meme: {meme.title}", description=f"Subreddit: r/{meme.subreddit}\n[Link]({meme.source})")
+        embed.set_image(meme.image_url)
+        await ctx.send(embed=embed)
+
 def setup(bot):
     bot.add_cog(KSoft(bot))
