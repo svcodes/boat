@@ -27,7 +27,7 @@ class KSoft(commands.Cog):
 
     @commands.command()
     async def meme(self, ctx):
-        meme = kclient.images.random_meme
+        meme = await kclient.images.random_meme()
         embed = discord.Embed(title=f"Meme: {meme.title}", description=f"Subreddit: r/{meme.subreddit}\n[Link]({meme.source})")
         embed.set_image(meme.image_url)
         await ctx.send(embed=embed)
