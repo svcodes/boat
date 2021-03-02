@@ -29,7 +29,8 @@ class KSoft(commands.Cog):
     async def meme(self, ctx):
         meme = await kclient.images.random_meme()
         embed = discord.Embed(title=f"Meme: {meme.title}", description=f"Subreddit: r/{meme.subreddit}\n[Link]({meme.source})")
-        embed.set_image(meme.image_url)
+        embed.set_image(url=meme.image_url)
+        embed.set_footer(text=f"Obtained with KSoft.Si | {meme.upvotes} ⬆")
         await ctx.send(embed=embed)
 
 def setup(bot):
