@@ -1,3 +1,4 @@
+# I am extremely lazy and do not feel like adding a proper readme so here is the default
 <p align="center">
   <img alt="discord_bot.py" src="https://i.alexflipnote.dev/MiFAeTE.png" width="750px">
 </p>
