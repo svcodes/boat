@@ -1,0 +1,20 @@
+{
+  "token": "discord bot token",
+  "join_message": ".help for things",
+  "owners": [
+    435206857276260353
+  ],
+  "prefix": [
+    "."
+  ],
+  "activity": "people type .help",
+  "activity_type": "watching",
+  "status_type": "online",
+  "alexflipnote_api": "https://discord.gg/DpxkY3x",
+  "version": "69.420",
+  "osu_api_key": "osu.ppy.sh/p/api",
+  "ksoft_token": "ksoft.si",
+  "sra_key" : "https://some-random-api.ml/docs/Welcome/Keys",
+  "travitia_key": "https://discord.gg/yrnx7Et"
+
+}
