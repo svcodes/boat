@@ -6,7 +6,7 @@ import asyncio
 import aiohttp
 import re
 from disputils import BotMultipleChoice
-
+from bs4 import BeautifulSoup
 
 from io import BytesIO
 from discord.ext import commands
@@ -27,7 +27,14 @@ class Fun_Commands(commands.Cog):
 #        async with ctx.channel.typing(), self.bot.session.post("https://public-api.travitia.xyz/talk", json=payload, headers={"authorization": self.config.travitia_key}) as req:
 #            await ctx.send((await req.json())["response"]) 
 
-
+    @commands.command()
+    async def topic(self, ctx):
+        s = aiohttp.ClientSession()
+        r = await s.get("https://conversationstarters.com/generator.php")
+        body = BeautifulSoup(r.content, "lxml")
+        div = soup.find("div", attrs={"id": "random"}).text
+        await ctx.send(div)
+    
     @commands.command()
     async def poll(self, ctx, *, question: commands.clean_content):
         """ Make a poll to ask people questions """
