@@ -29,9 +29,8 @@ class Fun_Commands(commands.Cog):
 
     @commands.command()
     async def topic(self, ctx):
-        s = aiohttp.ClientSession()
-        r = await s.get("https://conversationstarters.com/generator.php")
-        body = BeautifulSoup(r.content, "lxml")
+        r = await http.get("https://conversationstarters.com/generator.php", res_method="text")
+        body = BeautifulSoup(r, "lxml")
         div = soup.find("div", attrs={"id": "random"}).text
         await ctx.send(div)
     
