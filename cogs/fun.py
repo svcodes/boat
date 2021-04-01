@@ -29,6 +29,7 @@ class Fun_Commands(commands.Cog):
 
     @commands.command()
     async def topic(self, ctx):
+        await ctx.trigger_typing()
         r = await http.get("https://conversationstarters.com/generator.php", res_method="text")
         soup = BeautifulSoup(r, "lxml")
         div = soup.find("div", attrs={"id": "random"}).text
