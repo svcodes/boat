@@ -59,7 +59,7 @@ class Fun_Commands(commands.Cog):
         for num, option in enumerate(answers):
             desc += f"{EMOJI[num]} {option}"
         embed = discord.Embed(title=question, colour= discord.Colour(0x7289da), description=desc)
-        await ctx.send(embed)
+        await ctx.send(embed=embed)
 
 
 
