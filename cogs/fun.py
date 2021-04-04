@@ -17,15 +17,14 @@ class Fun_Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.config = default.get("config.json")
-    
-    
-#    @commands.command()
-#    async def cb(ctx, *, text: str):
-#        if not (3 <= len(text) <= 60):
-#            return await ctx.send("Text must be longer than 3 chars and shorter than 60.")
-#        payload = {"text": text} #the optional context should be archived somewhere up to you to provide some chat history from the user
-#        async with ctx.channel.typing(), self.bot.session.post("https://public-api.travitia.xyz/talk", json=payload, headers={"authorization": self.config.travitia_key}) as req:
-#            await ctx.send((await req.json())["response"]) 
+
+    @commands.command()
+    async def fml(self, ctx):
+        await ctx.trigger_typing()
+        data = await http.get("https://www.fmylife.com/random",res_method="text")
+        soup = BeautifulSoup(data, "lxml")
+        content = soup.find("a", attrs={"class": "article-link"}).text
+        await ctx.send(content)
 
     @commands.command()
     async def topic(self, ctx):
@@ -34,7 +33,7 @@ class Fun_Commands(commands.Cog):
         soup = BeautifulSoup(r, "lxml")
         div = soup.find("div", attrs={"id": "random"}).text
         await ctx.send(div)
-    
+   
     @commands.command()
     async def poll(self, ctx, *, question: commands.clean_content):
         """ Make a poll to ask people questions """

@@ -6,7 +6,7 @@ from math import floor
 
 
 class Osu(commands.Cog):
-    def __init__(self,bot):
+    def __init__(self, bot):
         self.bot = bot
         self.config = default.get("config.json")
         self.osu_key = self.config.osu_api_key
