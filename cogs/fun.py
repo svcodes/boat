@@ -1,10 +1,13 @@
 import random
+from typing import Text
 import discord
 import urllib
 import secrets
 import asyncio
 import aiohttp
 import re
+from discord import embeds
+from discord import colour
 from disputils import BotMultipleChoice
 from bs4 import BeautifulSoup
 
@@ -46,11 +49,18 @@ class Fun_Commands(commands.Cog):
         await pogmessage.add_reaction("\U0001f90f")
     
     @commands.command()
-    async def bigpoll(self,ctx,question, *options):
+    async def bigpoll(self, ctx, question_and_opts: str):
         """ Poll, but you can have multiple options """
-        multiple_choice = BotMultipleChoice(ctx, options, question)
-        await multiple_choice.run()
-        await multiple_choice.quit(multiple_choice.choice)
+        EMOJI = "🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯".split(" ")
+        q_opts_split = question_and_opts.split(",")
+        question = q_opts_split[0].strip()
+        answers = [answer.strip() for answer in q_opts_split[1::]]
+        desc = ""
+        for num, option in enumerate(answers):
+            desc += f"{EMOJI[num]} {option}"
+        embed = discord.Embed(title=question, colour= discord.Color.blurple, description=desc)
+        await ctx.send(embed)
+
 
 
 
