@@ -61,7 +61,7 @@ class Fun_Commands(commands.Cog):
         embed = discord.Embed(title=question, colour= discord.Colour(0x7289da), description=desc)
         msg = await ctx.send(embed=embed)
         for i in range(len(answers)):
-            await message.add_reaction(emoji[i])
+            await msg.add_reaction(emoji[i])
 
 
 
