@@ -49,7 +49,7 @@ class Fun_Commands(commands.Cog):
         await pogmessage.add_reaction("\U0001f90f")
     
     @commands.command()
-    async def bigpoll(self, ctx, question_and_opts: str):
+    async def bigpoll(self, ctx, *, question_and_opts: str):
         """ Poll, but you can have multiple options """
         EMOJI = "🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯".split(" ")
         q_opts_split = question_and_opts.split(",")
