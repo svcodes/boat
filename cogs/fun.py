@@ -57,7 +57,7 @@ class Fun_Commands(commands.Cog):
         answers = [answer.strip() for answer in q_opts_split[1::]]
         desc = ""
         for num, option in enumerate(answers):
-            desc += f"{EMOJI[num]} {option}"
+            desc += f"{EMOJI[num]} {option}\n"
         embed = discord.Embed(title=question, colour= discord.Colour(0x7289da), description=desc)
         await ctx.send(embed=embed)
 
