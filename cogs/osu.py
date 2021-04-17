@@ -40,13 +40,13 @@ score: {data['score']}""")
         embed.description = f"""**Username:** {data['username']}
 **Join Date:** {data['join_date']}
 
-**Rank:** {data['pp_rank']:,}
+**Rank:** {int(data['pp_rank']):,}
 
 **PP:** {floor(float(data["pp_raw"])):,}
 
 **Total Playcount:** {data['playcount']}
 
-**Ranked/Total Score:** {data['ranked_score']:,}/{data['total_score']:,}
+**Ranked/Total Score:** {int(data['ranked_score']):,}/{int(data['total_score']):,}
 
 **Playtime:** {playtime_hr} hours, {remain_mins} minutes
 """
