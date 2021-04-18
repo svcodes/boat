@@ -19,8 +19,16 @@ class Bot(AutoShardedBot):
 
         await self.process_commands(msg)
 
-
+help_attrs = {
+    "name": "help",
+    "aliases": ['h']
+}
+        
 class HelpFormat(DefaultHelpCommand):
+    def __init__(self, **options):
+        super().__init__(**options)
+        self.command_attrs = help_attrs
+    
     def get_destination(self, no_pm: bool = False):
         if no_pm:
             return self.context.channel
