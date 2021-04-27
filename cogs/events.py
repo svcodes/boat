@@ -3,7 +3,7 @@ import psutil
 import os
 
 from datetime import datetime
-from discord.ext import commands
+from discord.ext import commands, tasks
 from discord.ext.commands import errors
 from utils import default
 
@@ -13,6 +13,10 @@ class Events(commands.Cog):
         self.bot = bot
         self.config = default.get("config.json")
         self.process = psutil.Process(os.getpid())
+    
+    @tasks.loop(hours=12.0)
+    async def eoty_vc():
+        pass
 
     @commands.Cog.listener()
     async def on_message(self, message):
