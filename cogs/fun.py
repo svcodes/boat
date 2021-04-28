@@ -50,7 +50,12 @@ class Fun_Commands(commands.Cog):
     
     @commands.command()
     async def bigpoll(self, ctx, *, question_and_opts: str):
-        """ Poll, but you can have multiple options """
+        """ 
+        Poll, but you can have multiple options 
+        Examples:
+        .bigpoll this is a question, this is an option, option 2
+        .bigpoll aaaaaaaaaaaaaaaaa, aaaaaaaa, aaaaaaaaa
+        """
         EMOJI = "🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯".split(" ")
         q_opts_split = question_and_opts.split(",")
         question = q_opts_split[0].strip()
