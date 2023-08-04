@@ -2,7 +2,7 @@
 
 it is a bot i made for my friends
 
-mostly cloned from [here](https://github.com/alexflipnote/discord_bot.py)
+based on [alexflipnote/discord_bot.py](https://github.com/alexflipnote/discord_bot.py) but with lots of cool other features
 
 ### photos
 <img width="418" alt="1" src="https://user-images.githubusercontent.com/61701181/225107607-cc82d19f-64f7-43c3-a1f5-eab9a584f723.png">
